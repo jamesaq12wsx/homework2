@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3U2-cV-NCI">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--MRT Stations-->
+        <scene sceneID="CwL-sg-jtn">
+            <objects>
+                <tableViewController id="7Me-u4-fCC" customClass="MRTTableViewController" customModule="homework2" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="I3O-bu-zFU">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="70" id="uPf-IG-N5r" customClass="MRTTableViewCell" customModule="homework2" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="70"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uPf-IG-N5r" id="fZj-Vd-GmF">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="69"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="湖州站" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ap4-Q9-VAZ">
+                                            <rect key="frame" x="8" y="14" width="279" height="28"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BR09" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tm7-D3-tzr">
+                                            <rect key="frame" x="482" y="14" width="51" height="28"/>
+                                            <color key="backgroundColor" red="0.61960784313725492" green="0.396078431372549" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="R05" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lRf-d9-j69">
+                                            <rect key="frame" x="541" y="14" width="51" height="28"/>
+                                            <color key="backgroundColor" red="0.79607843137254897" green="0.17254901960784313" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="mrtStationNameLabel" destination="Ap4-Q9-VAZ" id="bsU-bc-iVN"/>
+                                    <segue destination="hA4-I9-t3o" kind="show" identifier="showStationDetail" id="Zbm-Rz-u4V"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="7Me-u4-fCC" id="XXZ-fX-DtU"/>
+                            <outlet property="delegate" destination="7Me-u4-fCC" id="Y8H-m6-56X"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="MRT Stations" id="6V3-ed-Y1M"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VMT-1I-BQN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="921" y="343"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="ZJ6-kd-svz">
+            <objects>
+                <viewController id="hA4-I9-t3o" customClass="MRTDetailViewController" customModule="homework2" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1nD-wv-WJs"/>
+                        <viewControllerLayoutGuide type="bottom" id="GhX-2N-o8c"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IcD-eQ-qCV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="文湖線" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mny-ec-A6I">
+                                <rect key="frame" x="0.0" y="134" width="300" height="40"/>
+                                <color key="backgroundColor" red="0.61960784313725492" green="0.396078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="CZF-ms-H0w"/>
+                                    <constraint firstAttribute="height" constant="40" id="P40-Wx-3oC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="文湖線" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lG-Nz-1a1">
+                                <rect key="frame" x="300" y="134" width="300" height="40"/>
+                                <color key="backgroundColor" red="0.61960784310000006" green="0.39607843139999999" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="葫洲" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ese-bU-2Fi">
+                                <rect key="frame" x="0.0" y="64" width="600" height="62"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="43"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Mny-ec-A6I" firstAttribute="top" secondItem="Ese-bU-2Fi" secondAttribute="bottom" constant="8" symbolic="YES" id="7oJ-um-5Xf"/>
+                            <constraint firstItem="Ese-bU-2Fi" firstAttribute="top" secondItem="1nD-wv-WJs" secondAttribute="bottom" id="AGh-1h-pfJ"/>
+                            <constraint firstItem="Mny-ec-A6I" firstAttribute="firstBaseline" secondItem="3lG-Nz-1a1" secondAttribute="firstBaseline" id="APX-dd-rUk"/>
+                            <constraint firstItem="Mny-ec-A6I" firstAttribute="baseline" secondItem="3lG-Nz-1a1" secondAttribute="baseline" id="JRc-iM-VHx"/>
+                            <constraint firstItem="GhX-2N-o8c" firstAttribute="top" secondItem="Mny-ec-A6I" secondAttribute="bottom" constant="426" id="KyE-AY-skU"/>
+                            <constraint firstAttribute="trailing" secondItem="Ese-bU-2Fi" secondAttribute="trailing" id="M25-Bz-8vW"/>
+                            <constraint firstItem="Ese-bU-2Fi" firstAttribute="leading" secondItem="Mny-ec-A6I" secondAttribute="leading" id="NTE-30-n9g"/>
+                            <constraint firstItem="3lG-Nz-1a1" firstAttribute="leading" secondItem="Mny-ec-A6I" secondAttribute="trailing" id="b6C-nQ-kJA"/>
+                            <constraint firstItem="Ese-bU-2Fi" firstAttribute="leading" secondItem="IcD-eQ-qCV" secondAttribute="leading" id="qDQ-2q-MXY"/>
+                            <constraint firstItem="Ese-bU-2Fi" firstAttribute="trailing" secondItem="3lG-Nz-1a1" secondAttribute="trailing" id="vos-1A-vVP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="MRTStationNameLabel" destination="Ese-bU-2Fi" id="cm3-z0-55x"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ikO-Nb-Ya0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1850" y="343"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="GW8-oL-shB">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3U2-cV-NCI" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DPk-4u-wTY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="7Me-u4-fCC" kind="relationship" relationship="rootViewController" id="UUr-Iy-xUG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H9U-UV-4Yl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="109" y="343"/>
+        </scene>
+    </scenes>
+</document>
