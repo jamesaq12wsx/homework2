@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		661E74331CDBCE8B0069C92A /* MRTTwoLineStationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661E74321CDBCE8B0069C92A /* MRTTwoLineStationTableViewCell.swift */; };
+		661E74351CDBD3400069C92A /* MRTTwoLineDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661E74341CDBD3400069C92A /* MRTTwoLineDetailViewController.swift */; };
 		66B545FE1CD4ACD4001FA66C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B545FD1CD4ACD4001FA66C /* AppDelegate.swift */; };
 		66B546031CD4ACD4001FA66C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66B546011CD4ACD4001FA66C /* Main.storyboard */; };
 		66B546051CD4ACD4001FA66C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66B546041CD4ACD4001FA66C /* Assets.xcassets */; };
@@ -16,9 +18,13 @@
 		66B546161CD4B811001FA66C /* MRTStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B546151CD4B811001FA66C /* MRTStation.swift */; };
 		66B546181CD4B881001FA66C /* MRT.json in Resources */ = {isa = PBXBuildFile; fileRef = 66B546171CD4B881001FA66C /* MRT.json */; };
 		66B5461A1CD53B22001FA66C /* MRTDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B546191CD53B22001FA66C /* MRTDetailViewController.swift */; };
+		66D0FC071CDB0E5800D182B3 /* MRTStationLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D0FC061CDB0E5800D182B3 /* MRTStationLine.swift */; };
+		66D0FC091CDB104000D182B3 /* MRTStationLineColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D0FC081CDB104000D182B3 /* MRTStationLineColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		661E74321CDBCE8B0069C92A /* MRTTwoLineStationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRTTwoLineStationTableViewCell.swift; sourceTree = "<group>"; };
+		661E74341CDBD3400069C92A /* MRTTwoLineDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRTTwoLineDetailViewController.swift; sourceTree = "<group>"; };
 		66B545FA1CD4ACD4001FA66C /* homework2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = homework2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66B545FD1CD4ACD4001FA66C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66B546021CD4ACD4001FA66C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -30,6 +36,8 @@
 		66B546151CD4B811001FA66C /* MRTStation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRTStation.swift; sourceTree = "<group>"; };
 		66B546171CD4B881001FA66C /* MRT.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MRT.json; sourceTree = "<group>"; };
 		66B546191CD53B22001FA66C /* MRTDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRTDetailViewController.swift; sourceTree = "<group>"; };
+		66D0FC061CDB0E5800D182B3 /* MRTStationLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRTStationLine.swift; sourceTree = "<group>"; };
+		66D0FC081CDB104000D182B3 /* MRTStationLineColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRTStationLineColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,10 +76,14 @@
 				66B546061CD4ACD4001FA66C /* LaunchScreen.storyboard */,
 				66B546091CD4ACD4001FA66C /* Info.plist */,
 				66B5460F1CD4B34D001FA66C /* MRTTableViewCell.swift */,
+				661E74321CDBCE8B0069C92A /* MRTTwoLineStationTableViewCell.swift */,
 				66B546111CD4B3CE001FA66C /* MRTTableViewController.swift */,
-				66B546151CD4B811001FA66C /* MRTStation.swift */,
-				66B546171CD4B881001FA66C /* MRT.json */,
 				66B546191CD53B22001FA66C /* MRTDetailViewController.swift */,
+				661E74341CDBD3400069C92A /* MRTTwoLineDetailViewController.swift */,
+				66B546151CD4B811001FA66C /* MRTStation.swift */,
+				66D0FC061CDB0E5800D182B3 /* MRTStationLine.swift */,
+				66D0FC081CDB104000D182B3 /* MRTStationLineColor.swift */,
+				66B546171CD4B881001FA66C /* MRT.json */,
 			);
 			path = homework2;
 			sourceTree = "<group>";
@@ -108,6 +120,7 @@
 				TargetAttributes = {
 					66B545F91CD4ACD4001FA66C = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = ADPWP9D9KM;
 					};
 				};
 			};
@@ -148,11 +161,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66D0FC071CDB0E5800D182B3 /* MRTStationLine.swift in Sources */,
+				661E74331CDBCE8B0069C92A /* MRTTwoLineStationTableViewCell.swift in Sources */,
 				66B546161CD4B811001FA66C /* MRTStation.swift in Sources */,
 				66B545FE1CD4ACD4001FA66C /* AppDelegate.swift in Sources */,
+				66D0FC091CDB104000D182B3 /* MRTStationLineColor.swift in Sources */,
 				66B546121CD4B3CE001FA66C /* MRTTableViewController.swift in Sources */,
 				66B5461A1CD53B22001FA66C /* MRTDetailViewController.swift in Sources */,
 				66B546101CD4B34D001FA66C /* MRTTableViewCell.swift in Sources */,
+				661E74351CDBD3400069C92A /* MRTTwoLineDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +284,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = homework2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = self.edu.homework2;
@@ -278,6 +296,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = homework2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = self.edu.homework2;

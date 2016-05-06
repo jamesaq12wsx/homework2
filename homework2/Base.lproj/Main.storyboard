@@ -3,7 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--MRT Stations-->
@@ -15,7 +15,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="70" id="uPf-IG-N5r" customClass="MRTTableViewCell" customModule="homework2" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OneLineCell" rowHeight="70" id="uPf-IG-N5r" customClass="MRTTableViewCell" customModule="homework2" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uPf-IG-N5r" id="fZj-Vd-GmF">
@@ -28,27 +28,92 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BR09" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tm7-D3-tzr">
-                                            <rect key="frame" x="482" y="14" width="51" height="28"/>
-                                            <color key="backgroundColor" red="0.61960784313725492" green="0.396078431372549" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="R05" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lRf-d9-j69">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="R05" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lRf-d9-j69">
                                             <rect key="frame" x="541" y="14" width="51" height="28"/>
                                             <color key="backgroundColor" red="0.79607843137254897" green="0.17254901960784313" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="51" id="5iR-vH-u8s"/>
+                                                <constraint firstAttribute="height" constant="28" id="Ies-9k-qeg"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
+                                                    <integer key="value" value="25"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="lRf-d9-j69" secondAttribute="trailing" id="3Ag-wD-4aA"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="mrtStationFirstLineLabel" destination="lRf-d9-j69" id="g3A-VH-VrI"/>
                                     <outlet property="mrtStationNameLabel" destination="Ap4-Q9-VAZ" id="bsU-bc-iVN"/>
-                                    <segue destination="hA4-I9-t3o" kind="show" identifier="showStationDetail" id="Zbm-Rz-u4V"/>
+                                    <segue destination="hA4-I9-t3o" kind="show" identifier="showStationDetail" id="YK1-nA-dQp"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TwoLineCell" rowHeight="70" id="sYV-DD-aoV" customClass="MRTTwoLineStationTableViewCell" customModule="homework2" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="162" width="600" height="70"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sYV-DD-aoV" id="sIB-sB-kgw">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="69"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="湖州站" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0cX-7P-xbA">
+                                            <rect key="frame" x="8" y="14" width="279" height="28"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="BR09" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cX9-RJ-JDL">
+                                            <rect key="frame" x="482" y="14" width="51" height="28"/>
+                                            <color key="backgroundColor" red="0.61960784310000006" green="0.39607843139999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="28" id="10a-Z6-HVt"/>
+                                                <constraint firstAttribute="width" constant="51" id="mml-m4-RzE"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="R05" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Xp-aD-HXU">
+                                            <rect key="frame" x="541" y="14" width="51" height="28"/>
+                                            <color key="backgroundColor" red="0.79607843140000001" green="0.17254901959999999" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="28" id="G9T-jz-26m"/>
+                                                <constraint firstAttribute="width" constant="51" id="URb-fz-D7J"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="5Xp-aD-HXU" secondAttribute="trailing" id="RiN-JM-eav"/>
+                                        <constraint firstItem="5Xp-aD-HXU" firstAttribute="leading" secondItem="cX9-RJ-JDL" secondAttribute="trailing" constant="8" id="ZuL-vu-wKm"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="mrtStationFirstLineLabel" destination="5Xp-aD-HXU" id="Mf1-do-NZB"/>
+                                    <outlet property="mrtStationNameLabel" destination="0cX-7P-xbA" id="GbG-j2-rP2"/>
+                                    <outlet property="mrtStationSecondLineLabel" destination="cX9-RJ-JDL" id="8eX-iy-ntg"/>
+                                    <segue destination="cBU-m1-eSO" kind="show" identifier="showTwoLineStationDetail" id="GJb-R8-QZk"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -71,58 +136,114 @@
                         <viewControllerLayoutGuide type="top" id="1nD-wv-WJs"/>
                         <viewControllerLayoutGuide type="bottom" id="GhX-2N-o8c"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="IcD-eQ-qCV">
+                    <view key="view" contentMode="scaleToFill" id="IcD-eQ-qCV" customClass="MRTDetail">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="文湖線" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mny-ec-A6I">
-                                <rect key="frame" x="0.0" y="134" width="300" height="40"/>
-                                <color key="backgroundColor" red="0.61960784313725492" green="0.396078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="葫洲" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ese-bU-2Fi">
+                                <rect key="frame" x="0.0" y="64" width="600" height="52"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="43"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="文湖線" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lG-Nz-1a1">
+                                <rect key="frame" x="0.0" y="124" width="600" height="40"/>
+                                <color key="backgroundColor" red="0.61960784310000006" green="0.39607843139999999" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="CZF-ms-H0w"/>
-                                    <constraint firstAttribute="height" constant="40" id="P40-Wx-3oC"/>
+                                    <constraint firstAttribute="height" constant="40" id="3MU-KN-sN9"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="文湖線" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lG-Nz-1a1">
-                                <rect key="frame" x="300" y="134" width="300" height="40"/>
-                                <color key="backgroundColor" red="0.61960784310000006" green="0.39607843139999999" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="葫洲" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ese-bU-2Fi">
-                                <rect key="frame" x="0.0" y="64" width="600" height="62"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="43"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Mny-ec-A6I" firstAttribute="top" secondItem="Ese-bU-2Fi" secondAttribute="bottom" constant="8" symbolic="YES" id="7oJ-um-5Xf"/>
-                            <constraint firstItem="Ese-bU-2Fi" firstAttribute="top" secondItem="1nD-wv-WJs" secondAttribute="bottom" id="AGh-1h-pfJ"/>
-                            <constraint firstItem="Mny-ec-A6I" firstAttribute="firstBaseline" secondItem="3lG-Nz-1a1" secondAttribute="firstBaseline" id="APX-dd-rUk"/>
-                            <constraint firstItem="Mny-ec-A6I" firstAttribute="baseline" secondItem="3lG-Nz-1a1" secondAttribute="baseline" id="JRc-iM-VHx"/>
-                            <constraint firstItem="GhX-2N-o8c" firstAttribute="top" secondItem="Mny-ec-A6I" secondAttribute="bottom" constant="426" id="KyE-AY-skU"/>
-                            <constraint firstAttribute="trailing" secondItem="Ese-bU-2Fi" secondAttribute="trailing" id="M25-Bz-8vW"/>
-                            <constraint firstItem="Ese-bU-2Fi" firstAttribute="leading" secondItem="Mny-ec-A6I" secondAttribute="leading" id="NTE-30-n9g"/>
-                            <constraint firstItem="3lG-Nz-1a1" firstAttribute="leading" secondItem="Mny-ec-A6I" secondAttribute="trailing" id="b6C-nQ-kJA"/>
-                            <constraint firstItem="Ese-bU-2Fi" firstAttribute="leading" secondItem="IcD-eQ-qCV" secondAttribute="leading" id="qDQ-2q-MXY"/>
-                            <constraint firstItem="Ese-bU-2Fi" firstAttribute="trailing" secondItem="3lG-Nz-1a1" secondAttribute="trailing" id="vos-1A-vVP"/>
+                            <constraint firstItem="Ese-bU-2Fi" firstAttribute="leading" secondItem="IcD-eQ-qCV" secondAttribute="leading" id="I7i-GU-2B2"/>
+                            <constraint firstItem="3lG-Nz-1a1" firstAttribute="width" secondItem="Ese-bU-2Fi" secondAttribute="width" id="JQP-xm-iaG"/>
+                            <constraint firstItem="Ese-bU-2Fi" firstAttribute="top" secondItem="1nD-wv-WJs" secondAttribute="bottom" id="O2Z-5N-7W4"/>
+                            <constraint firstItem="Ese-bU-2Fi" firstAttribute="width" secondItem="IcD-eQ-qCV" secondAttribute="width" id="n9g-gK-Oxw"/>
+                            <constraint firstItem="Ese-bU-2Fi" firstAttribute="leading" secondItem="3lG-Nz-1a1" secondAttribute="leading" id="uhC-bL-MjM"/>
+                            <constraint firstItem="3lG-Nz-1a1" firstAttribute="top" secondItem="Ese-bU-2Fi" secondAttribute="bottom" constant="8" id="wme-TT-OY8"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="MRTStationNameLabel" destination="Ese-bU-2Fi" id="cm3-z0-55x"/>
+                        <outlet property="mrtStationFirstLineLabel" destination="3lG-Nz-1a1" id="D0e-T8-dFa"/>
+                        <outlet property="mrtStationNameLabel" destination="Ese-bU-2Fi" id="dey-0n-snP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ikO-Nb-Ya0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1850" y="343"/>
+            <point key="canvasLocation" x="1670" y="-61"/>
+        </scene>
+        <!--Two Line Detail View Controller-->
+        <scene sceneID="PqK-2S-b7a">
+            <objects>
+                <viewController id="cBU-m1-eSO" customClass="MRTTwoLineDetailViewController" customModule="homework2" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="m7N-dk-M6d"/>
+                        <viewControllerLayoutGuide type="bottom" id="puC-DK-uAk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wMo-JC-KxB">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="葫洲" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DcT-vV-Bbg">
+                                <rect key="frame" x="0.0" y="64" width="600" height="52"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="43"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eik-Vi-GY1">
+                                <rect key="frame" x="0.0" y="124" width="600" height="40"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="文湖線" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mw0-UI-8ss">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="40"/>
+                                        <color key="backgroundColor" red="0.61960784310000006" green="0.39607843139999999" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="lVx-5z-Q0e"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="文湖線" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GF4-9J-RbO">
+                                        <rect key="frame" x="300" y="0.0" width="300" height="40"/>
+                                        <color key="backgroundColor" red="0.61960784310000006" green="0.39607843139999999" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="O4S-me-oTe"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Mw0-UI-8ss" firstAttribute="width" secondItem="GF4-9J-RbO" secondAttribute="width" id="Cwm-pR-Wnf"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DcT-vV-Bbg" firstAttribute="top" secondItem="m7N-dk-M6d" secondAttribute="bottom" id="XF0-oi-oSE"/>
+                            <constraint firstItem="eik-Vi-GY1" firstAttribute="width" secondItem="DcT-vV-Bbg" secondAttribute="width" id="aUJ-xK-cvV"/>
+                            <constraint firstItem="DcT-vV-Bbg" firstAttribute="width" secondItem="wMo-JC-KxB" secondAttribute="width" id="ecf-yg-UlB"/>
+                            <constraint firstItem="eik-Vi-GY1" firstAttribute="top" secondItem="DcT-vV-Bbg" secondAttribute="bottom" constant="8" id="qOG-Qt-2QE"/>
+                            <constraint firstItem="DcT-vV-Bbg" firstAttribute="leading" secondItem="wMo-JC-KxB" secondAttribute="leading" id="zHO-PS-76H"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mrtStationFirstLineLabel" destination="GF4-9J-RbO" id="rIw-Xj-mIi"/>
+                        <outlet property="mrtStationNameLabel" destination="DcT-vV-Bbg" id="XRG-Pf-lbJ"/>
+                        <outlet property="mrtStationSecondLineLabel" destination="Mw0-UI-8ss" id="2c1-wW-Ht6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TYq-EQ-kVc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1670" y="633"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GW8-oL-shB">

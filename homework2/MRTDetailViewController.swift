@@ -10,14 +10,22 @@ import UIKit
 
 class MRTDetailViewController: UIViewController {
 
-    @IBOutlet var MRTStationNameLabel: UILabel!
-    var mrtStationName = ""
+    @IBOutlet var mrtStationNameLabel: UILabel!
+    @IBOutlet var mrtStationFirstLineLabel: UILabel!
+    
+    var mrtStation:MRTStation?
+//    var mrtStationName = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        MRTStationNameLabel.text = mrtStationName
+        mrtStationNameLabel.text = mrtStation?.name
+        for (lineName, lineCode) in mrtStation!.line! {
+            mrtStationFirstLineLabel.text = lineCode
+            let (r,g,b) = MRTStationLineColor().lineColor[lineName]!
+            mrtStationFirstLineLabel.backgroundColor = UIColor(red: r/255, green: g/255, blue: b/255, alpha: 1.0)
+        }
     }
 
     override func didReceiveMemoryWarning() {

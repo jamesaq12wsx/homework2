@@ -12,6 +12,8 @@ class MRTTableViewController: UITableViewController {
     
     var mrtStations:[MRTStation] = []
     var mrtArray:[[String: AnyObject]] = []
+    var mrtLines:[String:[MRTStation]] = [:]
+    var mrtLinesNumber:[String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +31,7 @@ class MRTTableViewController: UITableViewController {
         do {
             let object = try NSJSONSerialization.JSONObjectWithData(mrtData!, options: .AllowFragments)
             if let dictionary = object as? [[String: AnyObject]] {
-//                readMrtJSONObject(dictionary)
-                mrtArray = dictionary
+                readMrtJSONObject(dictionary)
             }
         } catch {
             // Handle Error
@@ -44,24 +45,60 @@ class MRTTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return mrtLinesNumber[section]
+    }
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return (mrtLines.count)
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return mrtArray.count
+        let mrtLine = mrtLines[mrtLinesNumber[section]]
+        return mrtLine!.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cellIdentifier = "Cell"
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)  as! MRTTableViewCell
+//        let cellIdentifier = "Cell"
+//        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)  as! MRTTableViewCell
 
         // Configure the cell...
-        cell.mrtStationNameLabel?.text = mrtArray[indexPath.row]["name"] as? String
-        return cell
+        let mrtLine = mrtLines[mrtLinesNumber[indexPath.section]]
+        let mrtStation = mrtLine![indexPath.row]
+        if mrtStation.line?.count == 1 {
+            let cellIdentifier = "OneLineCell"
+            let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)  as! MRTTableViewCell
+            cell.mrtStationNameLabel.text = mrtStation.name
+            for (lineName, lineCode) in mrtStation.line! {
+                cell.mrtStationFirstLineLabel.text = lineCode
+                let (r,g,b) = MRTStationLineColor().lineColor[lineName]!
+                cell.mrtStationFirstLineLabel.backgroundColor = UIColor(red: r/255, green: g/255, blue: b/255, alpha: 1.0)
+                cell.mrtStationFirstLineLabel.layer.cornerRadius = 5
+            }
+//            return cell
+            return cell
+        } else {
+            let cellIdentifier = "TwoLineCell"
+            let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! MRTTwoLineStationTableViewCell
+            cell.mrtStationNameLabel.text = mrtStation.name
+            var count = 1
+            for (lineName, lineCode) in mrtStation.line! {
+                if count == 1 {
+                    cell.mrtStationFirstLineLabel.text = lineCode
+                    let (r,g,b) = MRTStationLineColor().lineColor[lineName]!
+                    cell.mrtStationFirstLineLabel.backgroundColor = UIColor(red: r/255, green: g/255, blue: b/255, alpha: 1.0)
+                    count += 1
+                } else if count == 2{
+                    cell.mrtStationSecondLineLabel.text = lineCode
+                    let (r,g,b) = MRTStationLineColor().lineColor[lineName]!
+                    cell.mrtStationSecondLineLabel.backgroundColor = UIColor(red: r/255, green: g/255, blue: b/255, alpha: 1.0)
+                }
+            }
+            return cell
+        }
     }
  
 
@@ -110,7 +147,16 @@ class MRTTableViewController: UITableViewController {
         if segue.identifier == "showStationDetail" {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let destinationController = segue.destinationViewController as! MRTDetailViewController
-                destinationController.mrtStationName = (mrtArray[indexPath.row]["name"] as? String)!
+                let mrtLine = mrtLines[mrtLinesNumber[indexPath.section]]
+                let mrtStation = mrtLine![indexPath.row]
+                destinationController.mrtStation = mrtStation
+            }
+        } else if segue.identifier == "showTwoLineStationDetail" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let destinationController = segue.destinationViewController as! MRTTwoLineDetailViewController
+                let mrtLine = mrtLines[mrtLinesNumber[indexPath.section]]
+                let mrtStation = mrtLine![indexPath.row]
+                destinationController.mrtStation = mrtStation
             }
         }
     }
@@ -118,13 +164,20 @@ class MRTTableViewController: UITableViewController {
     
     func readMrtJSONObject(object: [[String: AnyObject]]) {
         let mrtStas = object
-        var mrtTempStation:MRTStation?
         for mrtSta in mrtStas {
             guard let name = mrtSta["name"] as? String, let coordinate = mrtSta["coordinate"] as? [Float], let lines = mrtSta["lines"] as? [String: String] else {break}
-            mrtTempStation?.name = name
-            mrtTempStation?.line = lines
-            mrtTempStation?.coordinate = coordinate
-            mrtStations.append(mrtTempStation!)
+            let newMrtStation = MRTStation(name: name,line: lines,coordinate: coordinate)
+            for (lineName,_) in lines {
+                if mrtLines[lineName] == nil {
+//                  let newMrtLine = [newMrtStation]
+                    mrtLines[lineName] = [newMrtStation]
+//                  mrtLines![lineName]?.append(newMrtStation)
+                    mrtLinesNumber.append(lineName)
+                }else {
+                    mrtLines[lineName]?.append(newMrtStation)
+                }
+            }
+            mrtStations.append(newMrtStation)
         }
     }
 

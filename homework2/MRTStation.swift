@@ -13,4 +13,9 @@ class MRTStation {
     var line:[String:String]?
     var coordinate:[Float]?
     
+    init(name:String, line:[String:String], coordinate:[Float]){
+        self.name = name
+        self.line = line
+        self.coordinate = coordinate
+    }
 }

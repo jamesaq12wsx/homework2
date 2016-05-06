@@ -1,18 +1,18 @@
 //
-//  MRTTableViewCell.swift
+//  TwoLineStationTableViewCell.swift
 //  homework2
 //
-//  Created by 林紹瑾 on 2016/4/30.
+//  Created by 林紹瑾 on 2016/5/6.
 //  Copyright © 2016年 林紹瑾. All rights reserved.
 //
 
 import UIKit
 
-class MRTTableViewCell: UITableViewCell {
+class MRTTwoLineStationTableViewCell: UITableViewCell {
     
-    @IBOutlet var mrtStationNameLabel: UILabel!
+    @IBOutlet weak var mrtStationNameLabel: UILabel!
     @IBOutlet weak var mrtStationFirstLineLabel: UILabel!
-    
+    @IBOutlet weak var mrtStationSecondLineLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
