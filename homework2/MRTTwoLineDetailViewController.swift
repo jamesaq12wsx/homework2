@@ -24,12 +24,12 @@ class MRTTwoLineDetailViewController: UIViewController {
         var count = 1
         for (lineName, lineCode) in mrtStation!.line! {
             if count == 1 {
-                mrtStationFirstLineLabel.text = lineCode
+                mrtStationFirstLineLabel.text = lineName
                 let (r,g,b) = MRTStationLineColor().lineColor[lineName]!
                 mrtStationFirstLineLabel.backgroundColor = UIColor(red: r/255, green: g/255, blue: b/255, alpha: 1.0)
                 count += 1
             } else if count == 2{
-                mrtStationSecondLineLabel.text = lineCode
+                mrtStationSecondLineLabel.text = lineName
                 let (r,g,b) = MRTStationLineColor().lineColor[lineName]!
                 mrtStationSecondLineLabel.backgroundColor = UIColor(red: r/255, green: g/255, blue: b/255, alpha: 1.0)
             }

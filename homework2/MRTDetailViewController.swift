@@ -21,8 +21,8 @@ class MRTDetailViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         mrtStationNameLabel.text = mrtStation?.name
-        for (lineName, lineCode) in mrtStation!.line! {
-            mrtStationFirstLineLabel.text = lineCode
+        for (lineName, _) in mrtStation!.line! {
+            mrtStationFirstLineLabel.text = lineName
             let (r,g,b) = MRTStationLineColor().lineColor[lineName]!
             mrtStationFirstLineLabel.backgroundColor = UIColor(red: r/255, green: g/255, blue: b/255, alpha: 1.0)
         }
